@@ -21,6 +21,7 @@ class _TasksScreenState extends State<TasksScreen> {
   List<ToDo> _foundToDo = []; // List of tasks to display based on category
   TaskCategory _selectedCategory =
       TaskCategory.all; // Default selected category
+  String _searchText = ''; // Search text
 
   @override
   void initState() {
@@ -134,6 +135,21 @@ class _TasksScreenState extends State<TasksScreen> {
     Navigator.pop(context); // Close the drawer
   }
 
+  // Method to handle search functionality
+  void _handleSearch(String searchText) {
+    setState(() {
+      _searchText = searchText;
+      if (_searchText.isNotEmpty) {
+        _foundToDo = todosList
+            .where((todo) =>
+                todo.todoText.toLowerCase().contains(_searchText.toLowerCase()))
+            .toList();
+      } else {
+        _updateTasks();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -205,9 +221,7 @@ class _TasksScreenState extends State<TasksScreen> {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: TextField(
-                onChanged: (keyword) {
-                  // Implement search functionality if needed
-                },
+                onChanged: _handleSearch,
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsets.all(0),
                   prefixIcon: Icon(
