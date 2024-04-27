@@ -58,6 +58,40 @@ class _TasksScreenState extends State<TasksScreen> {
     });
   }
 
+  // Method to show confirmation dialog before deleting a task
+  Future<void> _showDeleteConfirmationDialog(String id) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Delete Task'),
+          content: const Text('Are you sure you want to delete this task?'),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.grey,
+              ),
+              onPressed: () {
+                Navigator.pop(context); // Close the dialog
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.red,
+              ),
+              onPressed: () {
+                _deleteToDoItem(id); // Delete the task
+                Navigator.pop(context); // Close the dialog
+              },
+              child: const Text('Delete'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   // Method to handle task deletion
   void _deleteToDoItem(String id) {
     setState(() {
@@ -244,7 +278,9 @@ class _TasksScreenState extends State<TasksScreen> {
                 itemBuilder: (context, index) => ToDoItem(
                   todo: _foundToDo[index],
                   onToDoChanged: _handleToDoChange,
-                  onDeleteItem: _deleteToDoItem,
+                  onDeleteItem: (id) {
+                    return _showDeleteConfirmationDialog(_foundToDo[index].id);
+                  },
                 ),
               ),
             ),
