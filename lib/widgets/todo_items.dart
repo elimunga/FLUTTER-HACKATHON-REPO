@@ -33,19 +33,19 @@ class ToDoItem extends StatelessWidget {
         ),
         contentPadding: const EdgeInsets.symmetric(
             horizontal: 20, vertical: 5), // Set content padding
-        tileColor: Colors.white, // Set background color of the ListTile
+        tileColor: Colors.grey[200], // Set background color of the ListTile
         leading: Icon(
           todo.isDone
               ? Icons.check_box
               : Icons
                   .check_box_outline_blank, // Display check box icon based on completion status
-          color: Colors.blue, // Set icon color to blue
+          color: Colors.green, // Set icon color to green
         ),
         title: Text(
           todo.todoText, // Display the task text
           style: TextStyle(
-            fontSize: 16,
-            color: Colors.brown,
+            fontSize: 18,
+            color: Colors.black,
             decoration: todo.isDone
                 ? TextDecoration.lineThrough
                 : null, // Apply strikethrough decoration if task is completed
@@ -57,8 +57,8 @@ class ToDoItem extends StatelessWidget {
           height: 35,
           width: 35,
           decoration: BoxDecoration(
-            color: Colors
-                .red, // Set background color of the delete button container to red
+            color: Colors.red[
+                400], // Set background color of the delete button container to red
             borderRadius: BorderRadius.circular(
                 5), // Set rounded corners for the delete button container
           ),
