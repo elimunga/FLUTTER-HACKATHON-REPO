@@ -201,7 +201,7 @@ class _TasksScreenState extends State<TasksScreen> {
             ),
           ],
         ),
-        backgroundColor: const Color(0xFF883007),
+        backgroundColor: const Color(0xFF2E4053),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       drawer: Drawer(
@@ -267,7 +267,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       BoxConstraints(maxHeight: 20, minWidth: 25),
                   border: InputBorder.none,
                   hintText: "Search",
-                  hintStyle: TextStyle(color: Colors.grey),
+                  hintStyle: TextStyle(color: Color(0xFF272626)),
                 ),
               ),
             ),
@@ -294,9 +294,10 @@ class _TasksScreenState extends State<TasksScreen> {
           _showAddTaskDialog(context);
         },
         tooltip: 'Add New Task',
+        backgroundColor: const Color(0xFF2E4053),
         child: const Icon(Icons.add),
       ),
-      backgroundColor: const Color(0xFFCECAB7),
+      backgroundColor: const Color(0xFFE5E5E5),
     );
   }
 }

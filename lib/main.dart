@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // Configure app theme
         colorScheme: ColorScheme.fromSwatch()
-            .copyWith(primary: const Color(0xFF883007)), // Set primary color
+            .copyWith(primary: const Color(0xFF2E4053)), // Set primary color
         useMaterial3: true, // Enable Material 3 design elements
       ),
       home: const TasksScreen(), // Set home screen to be  TasksScreen
