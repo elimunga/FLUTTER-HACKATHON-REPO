@@ -70,7 +70,7 @@ class ToDoItem extends StatelessWidget {
             icon: const Icon(
               Icons.delete,
               size: 18,
-              color: Colors.green, // Set icon color to white
+              color: Colors.white, // Set icon color to white
             ),
           ),
         ),
